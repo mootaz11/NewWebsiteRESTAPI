@@ -1,0 +1,201 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+
+#dans chaque route on a spécifié le path(chemin) ,la fonction qu'on va utiliser,et la method http
+
+
+#                                    Category Routes                                                          #
+
+
+
+get_categories:
+  path: /category/getcategories
+  controller: App\Controller\CategoryController::getAllCategories
+  methods: GET
+
+
+create_categorie:
+  path: /category/create
+  controller: App\Controller\CategoryController::createCategory
+  methods: POST
+
+
+update_categorie:
+  path: /category/update/{idcategory}
+  controller: App\Controller\CategoryController::updateCategory
+  methods: POST
+
+
+get_categorie:
+  path: /category/{idcategory}
+  controller: App\Controller\CategoryController::showCategory
+  methods : GET
+
+
+delete_categorie:
+  path: /category/delete/{idcategory}
+  controller: App\Controller\CategoryController::deleteCategory
+  methods: DELETE
+
+#                                    Admin Routes                                                          #
+
+
+signup_admin:
+  path: /admin/signup
+  controller: App\Controller\AdminController::signup
+  methods: POST
+
+login_admin:
+  path: /admin/login
+  controller: App\Controller\AdminController::login
+  methods: POST
+
+update_info:
+  path: /admin/update/{id}
+  controller: App\Controller\AdminController::updateInfo
+  methods : POST
+
+delete_sous_admin:
+  path: /admin/deleteAdmin/{id}
+  controller : App\Controller\AdminController::delete_Sous_Admin
+  methods: DELETE
+
+get_all_sub_admins:
+  path: /admin/Sous_admins
+  controller: App\Controller\AdminController::All_sub_admins
+  methods: GET
+
+get_all_admins:
+  path: /admin/allAdmins
+  controller: App\Controller\AdminController::all_admins
+  methods: GET
+
+#                                    Actualite Routes                                                          #
+create_actualite:
+  path: /actualite/create/{idadmin}/{idcategory}
+  controller: App\Controller\ActualiteController::create
+  methods: POST
+
+update_actualite:
+  path: /actualite/update/{idactualite}/{adminid}
+  controller: App\Controller\ActualiteController::update
+  methods: POST
+
+
+delete_actualite:
+  path: actualite/delete/{idactualite}
+  controller: App\Controller\ActualiteController::delete
+  methods: DELETE
+
+get_news:
+  path: /actualite/news
+  controller: App\Controller\ActualiteController:getLatestNews
+  methods : GET
+
+
+
+get_all_actualites:
+  path: /actualite/actualites
+  controller: App\Controller\ActualiteController::getallActualites
+  methods: GET
+
+get_actualite:
+  path: /actualite/{idactualite}
+  controller: App\Controller\ActualiteController::getactualite
+  methods: GET
+
+get_actualite_by_category:
+  path: /actualite/{idcategory}/getAllActualitesByCategory
+  controller: App\Controller\ActualiteController::getActualitesbycategory
+  methods: GET
+
+  #                                    Commentaire Routes                                                          #
+
+get_all_comments:
+  path: /comment/allComments
+  controller: App\Controller\CommentaireController::showComments
+  methods: GET
+
+
+get_comments_byActualite:
+  path: /comment/comments/{idactualite}
+  controller: App\Controller\CommentaireController::showCommentsByActualite
+  methods: GET
+
+create_comment:
+  path: /comment/createComment/{idactualite}
+  controller: App\Controller\CommentaireController::createComment
+  methods: POST
+
+delete_Comment:
+  path: /comment/deleteComment/{idcomment}
+  controller: App\Controller\CommentaireController::deleteComment
+  methods: DELETE
+
+  #                                    Podcast  Routes                                                          #
+
+
+create_podcast:
+  path: /podcast/createpodcast
+  controller: App\Controller\PodcastController::createpodcast
+  methods: POST
+
+update_podcast:
+  path: /podcast/updatepodcast/{idpodcast}
+  controller: App\Controller\PodcastController::updatepodcast
+  methods: POST
+
+delete_podcast:
+  path: /podcast/delete/{idpodcast}
+  controller: App\Controller\PodcastController::deletePodcast
+  methods: DELETE
+
+get_all_podcasts:
+  path: /podcast/getAllPodcast
+  controller: App\Controller\PodcastController::getAllPodcasts
+  methods: GET
+
+get_podcast_byType:
+  path: /podcast/getPodcastByType
+  controller: App\Controller\PodcastController::getPodcastsByType
+  methods: GET
+get_one_podcast:
+  path: /podcast/getPodcast/:idpodcast
+  controller: App\Controller\PodcastController::getPodcast
+  methods: GET
+
+
+  #                                    Episode  Routes                                                          #
+
+get_episodes:
+  path: /episode/getepisodes
+  controller: App\Controller\EpisodeController::getAllEpisodes
+  methods: GET
+
+create_episode:
+  path: /episode/createEpisode/{idpodcast}
+  controller: App\Controller\EpisodeController::createEpisode
+  methods: POST
+
+update_episode:
+  path: /episode/update/{idepisode}
+  controller: App\Controller\EpisodeController::updateEpisode
+  methods: POST
+
+get_episodes_byPodcast:
+  path: /episode/getEpisode/{idpodcast}
+  controller: App\Controller\EpisodeController::getEpisodesbyPodcast
+  methods: GET
+
+delete_episode:
+  path: /episode/deleteEpisode/{idepisode}
+  controller: App\Controller\EpisodeController::delete_episode
+  methods: DELETE
+
+get_episode:
+  path: /episode/{idepisode}
+  controller: App\Controller\EpisodeController::getEpisode
+  methods: GET
+
